@@ -104,8 +104,26 @@ public class MainActivity extends AppCompatActivity implements
         mFilterDialog = new FilterDialogFragment();
     }
 
+
+    /*
+        Retrieving data from Firestore and display it in our app.
+     The first step to reading data from Firestore is to create a Query
+     */
     private void initFirestore() {
-        mFirestore = FirebaseFirestore.getInstance();    }
+        mFirestore = FirebaseFirestore.getInstance();
+        // Get the 50 highest rated restaurants
+        mQuery = mFirestore.collection("restaurants")
+                .orderBy("avgRating", Query.Direction.DESCENDING)
+                .limit(LIMIT);
+
+        /**
+         * Now we want to listen to the query,
+         * so that we get all matching documents and are notified of future updates in real time.
+         * Because our eventual goal is to bind this data to a RecyclerView,
+         * we need to create a RecyclerView.Adapter class to listen to the data.
+         */
+
+    }
 
     private void initRecyclerView() {
         if (mQuery == null) {
