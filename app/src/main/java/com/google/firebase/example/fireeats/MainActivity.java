@@ -35,7 +35,10 @@ import android.widget.Toast;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.example.fireeats.adapter.RestaurantAdapter;
+import com.google.firebase.example.fireeats.model.Restaurant;
+import com.google.firebase.example.fireeats.util.RestaurantUtil;
 import com.google.firebase.example.fireeats.viewmodel.MainActivityViewModel;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -102,8 +105,7 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void initFirestore() {
-        // TODO(developer): Implement
-    }
+        mFirestore = FirebaseFirestore.getInstance();    }
 
     private void initRecyclerView() {
         if (mQuery == null) {
@@ -163,9 +165,26 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
+    /*
+    *
+    * We started by getting a reference to the "restaurants" collection.
+    * Collections are created implicitly when documents are added,
+    * so there was no need to create the collection before writing data.
+    * Documents can be created using POJOs, which we use to create each Restaurant doc.
+    * The add() method adds a document to a collection with an auto-generated ID,
+    * so we did not need to specify a unique ID for each Restaurant.
+    */
+
     private void onAddItemsClicked() {
-        // TODO(developer): Add random restaurants
-        showTodoToast();
+        CollectionReference restaurants = mFirestore.collection("restaurants");
+        for (int i = 0; i < 10; i++) {
+            // Get a random Restaurant POJO
+            Restaurant restaurant = RestaurantUtil.getRandom(this);
+
+            // Add a new document to the restaurants collection
+            restaurants.add(restaurant);
+        }
+        //showTodoToast();
     }
 
     @Override
