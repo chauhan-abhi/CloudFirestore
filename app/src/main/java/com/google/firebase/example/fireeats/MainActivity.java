@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements
     @BindView(R.id.view_empty)
     ViewGroup mEmptyView;;
 
+    //realtime database of Firebase
     private FirebaseFirestore mFirestore;
     private Query mQuery;
 
@@ -107,8 +108,9 @@ public class MainActivity extends AppCompatActivity implements
 
     /*
         Retrieving data from Firestore and display it in our app.
-     The first step to reading data from Firestore is to create a Query
+        The first step to reading data from Firestore is to create a Query
      */
+
     private void initFirestore() {
         mFirestore = FirebaseFirestore.getInstance();
         // Get the 50 highest rated restaurants
@@ -237,6 +239,7 @@ public class MainActivity extends AppCompatActivity implements
         mQuery = query;
         mAdapter.setQuery(query);
 
+
         // Set header
         mCurrentSearchView.setText(Html.fromHtml(filters.getSearchDescription(this)));
         mCurrentSortByView.setText(filters.getOrderDescription(this));
@@ -315,7 +318,7 @@ public class MainActivity extends AppCompatActivity implements
         mViewModel.setIsSigningIn(true);
     }
 
-    private void showTodoToast() {
+    /*private void showTodoToast() {
         Toast.makeText(this, "TODO: Implement", Toast.LENGTH_SHORT).show();
-    }
+    }*/
 }

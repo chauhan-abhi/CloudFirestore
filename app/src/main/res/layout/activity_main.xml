@@ -57,6 +57,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@+id/button_filter"
                     android:layout_toRightOf="@+id/button_filter"
                     android:orientation="vertical"
                     android:paddingBottom="8dp"
@@ -85,11 +87,13 @@
                     android:id="@+id/button_clear_filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:padding="8dp"
                     android:tint="@color/greySecondary"
-                    app:srcCompat="@drawable/ic_close_white_24px" />
+                    app:srcCompat="@drawable/ic_close_white_24px"
+                     />
 
             </RelativeLayout>
 

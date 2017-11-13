@@ -17,6 +17,7 @@
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.google.firebase.example.fireeats.model.Restaurant;
 import com.google.firebase.example.fireeats.util.RestaurantUtil;
@@ -106,6 +107,7 @@ public class Filters {
             desc.append("<b>");
             desc.append(context.getString(R.string.all_restaurants));
             desc.append("</b>");
+            Log.v("desc",desc.toString());
         }
 
         if (category != null) {
