@@ -22,6 +22,13 @@ The App implements:
 * Subcollections
 * Transactions in implementing Rating functionality to prevent race conditions.
 
+# Libraries Used
+* Butter Knife : View binding library for Android
+* Material ratingbar
+* Firebase UI
+
+
+
 
  
 
