@@ -6,7 +6,7 @@ filters .
 The app comprises two screens. The first screen displays a list of restaurants along with their 
 name, rating ,place,photo. This screen also contains a filter search bar to add filters.
 After a user selects a restaurant ,a second detailed screen appears displaying full cover photo and rest 
-of the details of tha restraunt with a section to add rating and review by the authenticated users. 
+of the details of tha restaurant with a section to add rating and review by the authenticated users. 
 
 # Snaps
 <img src="https://github.com/chauhan-abhi/CloudFirestore/blob/master/docs/home.png" width="360" height="640">
